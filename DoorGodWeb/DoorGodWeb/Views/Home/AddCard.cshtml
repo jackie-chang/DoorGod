@@ -1,0 +1,49 @@
+﻿@model  DoorGodWeb.Models.AddCardInfo
+@{
+    ViewBag.Title = "AddCard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddCard</h2>
+
+<div>
+    @using (@Html.BeginForm("AddCard", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.EmpNo, new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-10">
+                @Html.TextBox("EmpNo", null, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.CardNo, new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-10">
+                @Html.TextBox("CardNo", null, new { @class = "form-control" })
+                @Html.ValidationMessage("EmpCName")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.CardState, new { @class = "col-sm-2 control-label" })
+            <div class="col-sm-10">
+                <select name="CardState" class="form-control">
+                    @foreach (SelectListItem i in ViewBag.cardStateListItem)
+                    {
+                        <option value="@i.Value">@i.Text</option>
+                    }
+                    
+                    
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">新增</button>
+            </div>
+        </div>
+    }
+</div>

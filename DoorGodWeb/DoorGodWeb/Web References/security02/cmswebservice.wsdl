@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.websystem.com.tw/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.websystem.com.tw/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.websystem.com.tw/">
+      <s:element name="SetDept">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeptNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeptName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ParentDeptNO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetDeptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetDeptResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpInfo" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetEmpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteEmpResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEmpCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEmpCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetEmpCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEmpTempCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetEmpTempCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetEmpTempCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExtEngineerCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpInfo" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExtEngineerCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetExtEngineerCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExtCompanyCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExtCompanyCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetExtCompanyCardResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCarPassport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SetNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNoList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCarPassportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCarPassportResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCarPassport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SetNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNoList" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCarPassportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCarPassportResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAllCarPassport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SetNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CarType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAllCarPassportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteAllCarPassportResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroupEmps">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNoList" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddGroupEmpsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddGroupEmpsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupEmps">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNoList" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteGroupEmpsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteGroupEmpsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCardState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TempNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCardStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetCardStateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCardStockIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCardStockInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCardStockInResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCardStockIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExtCardNo" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCardStockInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCardStockInResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmpGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmpNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmpGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetEmpGroupResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CMSGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DoorGuardGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SetDeptSoapIn">
+    <wsdl:part name="parameters" element="tns:SetDept" />
+  </wsdl:message>
+  <wsdl:message name="SetDeptSoapOut">
+    <wsdl:part name="parameters" element="tns:SetDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEmp" />
+  </wsdl:message>
+  <wsdl:message name="SetEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteEmp" />
+  </wsdl:message>
+  <wsdl:message name="DeleteEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEmpCardSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEmpCard" />
+  </wsdl:message>
+  <wsdl:message name="SetEmpCardSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEmpCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetEmpTempCardSoapIn">
+    <wsdl:part name="parameters" element="tns:SetEmpTempCard" />
+  </wsdl:message>
+  <wsdl:message name="SetEmpTempCardSoapOut">
+    <wsdl:part name="parameters" element="tns:SetEmpTempCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetExtEngineerCardSoapIn">
+    <wsdl:part name="parameters" element="tns:SetExtEngineerCard" />
+  </wsdl:message>
+  <wsdl:message name="SetExtEngineerCardSoapOut">
+    <wsdl:part name="parameters" element="tns:SetExtEngineerCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetExtCompanyCardSoapIn">
+    <wsdl:part name="parameters" element="tns:SetExtCompanyCard" />
+  </wsdl:message>
+  <wsdl:message name="SetExtCompanyCardSoapOut">
+    <wsdl:part name="parameters" element="tns:SetExtCompanyCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCarPassportSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCarPassport" />
+  </wsdl:message>
+  <wsdl:message name="AddCarPassportSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCarPassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCarPassportSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCarPassport" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCarPassportSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCarPassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllCarPassportSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAllCarPassport" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAllCarPassportSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAllCarPassportResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupEmpsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddGroupEmps" />
+  </wsdl:message>
+  <wsdl:message name="AddGroupEmpsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddGroupEmpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupEmpsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteGroupEmps" />
+  </wsdl:message>
+  <wsdl:message name="DeleteGroupEmpsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteGroupEmpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCardStateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCardState" />
+  </wsdl:message>
+  <wsdl:message name="SetCardStateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCardStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCardStockInSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCardStockIn" />
+  </wsdl:message>
+  <wsdl:message name="AddCardStockInSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCardStockInResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardStockInSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCardStockIn" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCardStockInSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCardStockInResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmpGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetEmpGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmpGroupResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CMSWebServiceSoap">
+    <wsdl:operation name="SetDept">
+      <wsdl:input message="tns:SetDeptSoapIn" />
+      <wsdl:output message="tns:SetDeptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEmp">
+      <wsdl:input message="tns:SetEmpSoapIn" />
+      <wsdl:output message="tns:SetEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmp">
+      <wsdl:input message="tns:DeleteEmpSoapIn" />
+      <wsdl:output message="tns:DeleteEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEmpCard">
+      <wsdl:input message="tns:SetEmpCardSoapIn" />
+      <wsdl:output message="tns:SetEmpCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetEmpTempCard">
+      <wsdl:input message="tns:SetEmpTempCardSoapIn" />
+      <wsdl:output message="tns:SetEmpTempCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetExtEngineerCard">
+      <wsdl:input message="tns:SetExtEngineerCardSoapIn" />
+      <wsdl:output message="tns:SetExtEngineerCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetExtCompanyCard">
+      <wsdl:input message="tns:SetExtCompanyCardSoapIn" />
+      <wsdl:output message="tns:SetExtCompanyCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCarPassport">
+      <wsdl:input message="tns:AddCarPassportSoapIn" />
+      <wsdl:output message="tns:AddCarPassportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarPassport">
+      <wsdl:input message="tns:DeleteCarPassportSoapIn" />
+      <wsdl:output message="tns:DeleteCarPassportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllCarPassport">
+      <wsdl:input message="tns:DeleteAllCarPassportSoapIn" />
+      <wsdl:output message="tns:DeleteAllCarPassportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupEmps">
+      <wsdl:input message="tns:AddGroupEmpsSoapIn" />
+      <wsdl:output message="tns:AddGroupEmpsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupEmps">
+      <wsdl:input message="tns:DeleteGroupEmpsSoapIn" />
+      <wsdl:output message="tns:DeleteGroupEmpsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCardState">
+      <wsdl:input message="tns:SetCardStateSoapIn" />
+      <wsdl:output message="tns:SetCardStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCardStockIn">
+      <wsdl:input message="tns:AddCardStockInSoapIn" />
+      <wsdl:output message="tns:AddCardStockInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCardStockIn">
+      <wsdl:input message="tns:DeleteCardStockInSoapIn" />
+      <wsdl:output message="tns:DeleteCardStockInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpGroup">
+      <wsdl:input message="tns:GetEmpGroupSoapIn" />
+      <wsdl:output message="tns:GetEmpGroupSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CMSWebServiceSoap" type="tns:CMSWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetDept">
+      <soap:operation soapAction="http://www.websystem.com.tw/SetDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmp">
+      <soap:operation soapAction="http://www.websystem.com.tw/SetEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmp">
+      <soap:operation soapAction="http://www.websystem.com.tw/DeleteEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmpCard">
+      <soap:operation soapAction="http://www.websystem.com.tw/SetEmpCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmpTempCard">
+      <soap:operation soapAction="http://www.websystem.com.tw/SetEmpTempCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExtEngineerCard">
+      <soap:operation soapAction="http://www.websystem.com.tw/SetExtEngineerCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExtCompanyCard">
+      <soap:operation soapAction="http://www.websystem.com.tw/SetExtCompanyCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCarPassport">
+      <soap:operation soapAction="http://www.websystem.com.tw/AddCarPassport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarPassport">
+      <soap:operation soapAction="http://www.websystem.com.tw/DeleteCarPassport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllCarPassport">
+      <soap:operation soapAction="http://www.websystem.com.tw/DeleteAllCarPassport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupEmps">
+      <soap:operation soapAction="http://www.websystem.com.tw/AddGroupEmps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupEmps">
+      <soap:operation soapAction="http://www.websystem.com.tw/DeleteGroupEmps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCardState">
+      <soap:operation soapAction="http://www.websystem.com.tw/SetCardState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCardStockIn">
+      <soap:operation soapAction="http://www.websystem.com.tw/AddCardStockIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCardStockIn">
+      <soap:operation soapAction="http://www.websystem.com.tw/DeleteCardStockIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpGroup">
+      <soap:operation soapAction="http://www.websystem.com.tw/GetEmpGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CMSWebServiceSoap12" type="tns:CMSWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetDept">
+      <soap12:operation soapAction="http://www.websystem.com.tw/SetDept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmp">
+      <soap12:operation soapAction="http://www.websystem.com.tw/SetEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmp">
+      <soap12:operation soapAction="http://www.websystem.com.tw/DeleteEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmpCard">
+      <soap12:operation soapAction="http://www.websystem.com.tw/SetEmpCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetEmpTempCard">
+      <soap12:operation soapAction="http://www.websystem.com.tw/SetEmpTempCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExtEngineerCard">
+      <soap12:operation soapAction="http://www.websystem.com.tw/SetExtEngineerCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExtCompanyCard">
+      <soap12:operation soapAction="http://www.websystem.com.tw/SetExtCompanyCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCarPassport">
+      <soap12:operation soapAction="http://www.websystem.com.tw/AddCarPassport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCarPassport">
+      <soap12:operation soapAction="http://www.websystem.com.tw/DeleteCarPassport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllCarPassport">
+      <soap12:operation soapAction="http://www.websystem.com.tw/DeleteAllCarPassport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGroupEmps">
+      <soap12:operation soapAction="http://www.websystem.com.tw/AddGroupEmps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupEmps">
+      <soap12:operation soapAction="http://www.websystem.com.tw/DeleteGroupEmps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCardState">
+      <soap12:operation soapAction="http://www.websystem.com.tw/SetCardState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCardStockIn">
+      <soap12:operation soapAction="http://www.websystem.com.tw/AddCardStockIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCardStockIn">
+      <soap12:operation soapAction="http://www.websystem.com.tw/DeleteCardStockIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmpGroup">
+      <soap12:operation soapAction="http://www.websystem.com.tw/GetEmpGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CMSWebService">
+    <wsdl:port name="CMSWebServiceSoap" binding="tns:CMSWebServiceSoap">
+      <soap:address location="http://security02/cecicms/cmswebservice/cmswebservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CMSWebServiceSoap12" binding="tns:CMSWebServiceSoap12">
+      <soap12:address location="http://security02/cecicms/cmswebservice/cmswebservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
