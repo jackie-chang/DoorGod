@@ -14,13 +14,13 @@ namespace DoorGodWeb.Controllers
         {
             return View();
         }
-        
+
         public ActionResult Create()
         {
             //員工身分需下拉式選單
             ViewBag.empRoleListItem = DoorGodConst.GetEmpRoleListItem();
             return View(new EmpInfo());
-        }        
+        }
 
 
         [HttpPost]
@@ -32,16 +32,16 @@ namespace DoorGodWeb.Controllers
 
                 //CMSWebService.ArrayOfString empInfo = new CMSWebService.ArrayOfString();
                 string[] empInfo = new string[10];
-                empInfo[0]=emp.EmpCName;
-                empInfo[1]=emp.DeptNo;
-                empInfo[2]=emp.ArriveDate;
-                empInfo[3]="";
-                empInfo[4]="";
-                empInfo[5]="";
-                empInfo[6]=emp.Sex;
-                empInfo[7]=emp.Role;
-                empInfo[8]=emp.FloorGroups;
-                empInfo[9]="";
+                empInfo[0] = emp.EmpCName;
+                empInfo[1] = emp.DeptNo;
+                empInfo[2] = emp.ArriveDate;
+                empInfo[3] = "";
+                empInfo[4] = "";
+                empInfo[5] = "";
+                empInfo[6] = emp.Sex;
+                empInfo[7] = emp.Role;
+                empInfo[8] = emp.FloorGroups;
+                empInfo[9] = "";
 
 
 
@@ -69,7 +69,7 @@ namespace DoorGodWeb.Controllers
                 Debug.WriteLine(ex.Message);
                 throw;
             }
-            
+
 
             return View();
         }
@@ -77,16 +77,16 @@ namespace DoorGodWeb.Controllers
         public ActionResult AddCard()
         {
             ViewBag.cardStateListItem = DoorGodConst.GetCardStateListItem();
-            
+
             return View(new AddCardInfo());
         }
         [HttpPost]
-        public ActionResult AddCard(AddCardInfo addCardInfo )
+        public ActionResult AddCard(AddCardInfo addCardInfo)
         {
             security02.CMSWebService d = new security02.CMSWebService();
             int result = d.SetEmpCard(DoorGodConst.GetUserName(), addCardInfo.EmpNo, addCardInfo.CardNo, addCardInfo.CardState);
             return Content(result.ToString());
         }
-        
+
     }
 }
