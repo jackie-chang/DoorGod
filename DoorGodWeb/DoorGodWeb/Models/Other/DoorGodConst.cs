@@ -19,6 +19,10 @@ namespace DoorGodWeb.Models
         public const string 一般人員 = "一般人員";
         public const string 管理人員 = "管理人員";
 
+        //停車證類型
+        public const string 汽車停車證 = "1";
+        public const string 機車停車證 = "2";
+
         /// <summary>
         /// 取得卡片狀態的集合
         /// </summary>
@@ -55,5 +59,12 @@ namespace DoorGodWeb.Models
             };
         }
 
+        public static List<SelectListItem> GetCarPassportType()
+        {
+            return new List<SelectListItem> {
+                new SelectListItem() { Value=汽車停車證, Text="汽車停車證" },
+                new SelectListItem() { Value=機車停車證, Text="機車停車證" }
+            };
+        }
     }
 }

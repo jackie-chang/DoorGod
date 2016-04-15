@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - DoorGod</title>
@@ -10,21 +10,53 @@
 
 </head>
 <body>
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-success">@TempData["message"]</div>
+    }
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     @*<span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>*@
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>*@
                 </button>
                 @Html.ActionLink("DoorGod", "Create", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("新增", "Create", "Home")</li>  
-                    <li>@Html.ActionLink("設定卡片", "AddCard", "Home")</li>                                        
-                </ul>                
+                    <li>@Html.ActionLink("新增", "Create", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            員工卡<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("新增異動員工", "Create", "Home")</li>
+                            <li>@Html.ActionLink("刪除人員", "Delete", "Home")</li>
+                            <li>@Html.ActionLink("設定員工卡片", "AddCard", "Home")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            停車證<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("新增停車證人員", "Add", "CarPassport")</li>
+                            <li>@Html.ActionLink("刪除停車證人員", "Delete", "CarPassport")</li>
+                            <li>@Html.ActionLink("清除期別所有人員", "ClearAll", "CarPassport")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            臨時卡<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>臨時卡發卡</li>
+                            <li>臨時卡歸還</li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
