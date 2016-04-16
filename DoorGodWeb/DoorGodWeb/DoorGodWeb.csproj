@@ -186,7 +186,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CarPassportController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CreateCardController.cs" />
+    <Compile Include="Core\Other\Utility.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,7 +235,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Home\AddCard.cshtml" />
+    <Content Include="Views\CreateCard\AddCard.cshtml" />
     <Content Include="Views\CarPassport\Add.cshtml" />
     <Content Include="Views\CarPassport\Delete.cshtml" />
     <Content Include="Views\CarPassport\ClearAll.cshtml" />
@@ -250,9 +251,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\CreateCard\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\CreateCard\Create.cshtml" />
     <None Include="Web References\security02\cmswebservice.wsdl" />
     <Content Include="Web References\security02\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
