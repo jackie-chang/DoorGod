@@ -13,5 +13,9 @@ namespace DoorGodWeb.Controllers
         {
             return View();
         }
+
+        public ActionResult Add()
+        { return View();
+        }
     }
 }
