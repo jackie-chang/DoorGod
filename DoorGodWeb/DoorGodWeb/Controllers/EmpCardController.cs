@@ -10,11 +10,11 @@ using DoorGodWeb.Abstract;
 
 namespace DoorGodWeb.Controllers
 {
-    public class CreateCardController : Controller
+    public class EmpCardController : Controller
     {
         private ICardService cardService;
         
-        public CreateCardController(ICardService cardService)
+        public EmpCardController(ICardService cardService)
         {
             this.cardService = cardService;
         }        
@@ -33,7 +33,8 @@ namespace DoorGodWeb.Controllers
 
         [HttpPost]
         public ActionResult Create(EmpInfo emp)
-        {            
+        {
+            ViewBag.cardStateListItem = DoorGodConst.GetCardStateListItem();
             try
             {
                 if(ModelState.IsValid)
@@ -56,12 +57,12 @@ namespace DoorGodWeb.Controllers
         {
             ViewBag.cardStateListItem = DoorGodConst.GetCardStateListItem();
 
-            return View(new AddCardInfo());
+            return View();
         }
         [HttpPost]
         public ActionResult AddCard(AddCardInfo addCardInfo)
         {
-
+            ViewBag.cardStateListItem = DoorGodConst.GetCardStateListItem();
             try
             {
                 if (ModelState.IsValid)
