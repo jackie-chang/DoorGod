@@ -60,7 +60,9 @@ namespace DoorGodWeb.Infrastructure
 
         public string SetEmpTempCard(string empNo, string cardNo, string cardState)
         {
-            throw new NotImplementedException();
+            return service.SetEmpTempCard(DoorGodConst.GetUserName(), empNo, cardNo, cardState).ToString();
         }
+
+        
     }
 }

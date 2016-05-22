@@ -33,10 +33,12 @@ namespace DoorGodWeb.Controllers
 
         [HttpPost]
         public ActionResult Create(EmpInfo emp)
-        {            
+        {
+            ViewBag.empRoleListItem = DoorGodConst.GetEmpRoleListItem();
+
             try
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     TempData["message"] = cardService.SetEmp(emp);
                     return View();
@@ -47,6 +49,7 @@ namespace DoorGodWeb.Controllers
             {
                 //TODO WriteLog
                 Debug.WriteLine(ex.Message);
+                TempData["message"] = ex.Message;
                 return View();
             }
             
@@ -64,6 +67,8 @@ namespace DoorGodWeb.Controllers
 
             try
             {
+                ViewBag.cardStateListItem = DoorGodConst.GetCardStateListItem();
+
                 if (ModelState.IsValid)
                 {
                     TempData["message"] = cardService.SetEmpCard( addCardInfo.EmpNo, addCardInfo.CardNo, addCardInfo.CardState);
@@ -75,6 +80,7 @@ namespace DoorGodWeb.Controllers
             {
                 //TODO WriteLog
                 Debug.WriteLine(ex.Message);
+                TempData["message"] = ex.Message;
                 return View();
             }
         }

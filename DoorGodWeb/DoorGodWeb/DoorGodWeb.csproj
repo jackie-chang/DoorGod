@@ -214,6 +214,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\HtmlPage1.html" />
+    <Content Include="Content\T3.htm" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -240,6 +242,7 @@
     <Content Include="Views\CarPassport\Add.cshtml" />
     <Content Include="Views\CarPassport\Delete.cshtml" />
     <Content Include="Views\CarPassport\ClearAll.cshtml" />
+    <Content Include="Views\TempCard\Index.cshtml" />
     <None Include="Web References\security02\cmswebservice.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -263,7 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\TempCard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
