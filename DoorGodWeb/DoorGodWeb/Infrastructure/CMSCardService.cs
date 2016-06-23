@@ -19,6 +19,7 @@ namespace DoorGodWeb.Infrastructure
 
         public string AddCarPassport(CarPassport carPassport)
         {
+            //test
             throw new NotImplementedException();
         }
 
