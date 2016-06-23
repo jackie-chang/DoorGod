@@ -25,7 +25,14 @@ namespace DoorGodWeb.Infrastructure
             //驗證EmpNo是否是正確值
             if (! Utility.ValidEmpNoList(carPassport.EmpNoList)) return "員工清單格式錯誤";
             
-            return service.AddCarPassport(DoorGodConst.GetUserName(),carPassport.SetNo,carPassport.EmpNoList,carPassport.StartDate.Value.ToString("yyyy/MM/dd"),carPassport.EndDate.Value.ToString("yyyy/MM/dd"), carPassport.CarType).ToString();
+            return service.AddCarPassport(
+                DoorGodConst.GetUserName(),
+                carPassport.SetNo,
+                carPassport.EmpNoList,
+                carPassport.StartDate.Value.ToString("yyyy/MM/dd"),
+                carPassport.EndDate.Value.ToString("yyyy/MM/dd"), 
+                carPassport.CarType
+                ).ToString();
         }        
 
         public string ClearAllCarPassport(string setNo, string carType)
