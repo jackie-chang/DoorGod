@@ -30,6 +30,7 @@ namespace DoorGodWeb.Controllers
             if (ModelState.IsValid)
             {
                 //TODO: Implement call WebService function.
+                //準備
                 string result = cardService.AddCarPassport(carPassport);               
 
                 TempData["message"] = result;
