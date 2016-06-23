@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace DoorGodWeb.Core
@@ -38,6 +39,29 @@ namespace DoorGodWeb.Core
                 }
             }
             return result;
+        }
+
+        public static string[] ConvertToArray(string[] empNoList)
+        {
+            //因為前端傳進來只有一筆22222,33333，所以要將此變成一筆一筆得陣列
+            string temp = empNoList[0];
+            string[] reslut = temp.Split(',');
+            return reslut;
+        }
+
+        public static bool ValidEmpNoList(string[] empNoList)
+        {
+            string pattern = @"\w"; //[a-zA-Z_0-9]
+            Regex rgx = new Regex(pattern);
+            foreach (string empNo in empNoList)
+            {
+                if (empNo == null) return false;
+                if (empNo == string.Empty) return false;
+                if (empNo == " ") return false;
+                if (empNo == "") return false;
+                if (!rgx.IsMatch(empNo)) return false;
+            }
+            return true;
         }
     }
 }

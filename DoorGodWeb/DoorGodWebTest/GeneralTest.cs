@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DoorGodWeb.Core;
 using System.Collections.Generic;
 using DoorGodWeb.Models;
+using System.Diagnostics;
 
 namespace DoorGodWebTest
 {
@@ -71,6 +72,67 @@ namespace DoorGodWebTest
             Assert.AreEqual(result2[1], "99999999999", "CardNo");
             Assert.AreEqual(result2[2], "123", "CardState");
 
+        }
+
+        [TestMethod]
+        public void ValidEmpNoListTest()
+        {
+            string[] empNoList;
+            bool result;
+
+            //正常值
+            empNoList = new string[] { "11111", "11111", "11111", "11111", "11111" };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsTrue(result);
+
+            //大寫英文
+            empNoList = new string[] { "A1234" };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsTrue(result);
+
+            //小寫英文
+            empNoList = new string[] { "a1234" };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsTrue(result);
+
+            //string.Empty
+            empNoList = new string[] {string.Empty };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsFalse(result);
+
+            //""
+            empNoList = new string[] {"" };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsFalse(result);
+
+            //" "
+            empNoList = new string[] {" "};
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsFalse(result);
+
+            //小寫英文
+            empNoList = new string[] { "aaaaa" };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsTrue(result);
+
+            //大寫英文
+            empNoList = new string[] { "AAAAA" };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsTrue(result);
+
+            //特殊
+            empNoList = new string[] { ",,,,," };
+            result = Utility.ValidEmpNoList(empNoList);
+            Assert.IsFalse(result);
+
+        }
+
+
+        [TestMethod]
+        public void DateTimeNullTest()
+        {
+            DateTime? StartDate = new DateTime(2016, 6, 23);
+            Assert.AreEqual("2016/06/23", StartDate.Value.ToString("yyyy/MM/dd"));
         }
     }
 }
