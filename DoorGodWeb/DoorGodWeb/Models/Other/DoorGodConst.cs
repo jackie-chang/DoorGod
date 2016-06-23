@@ -66,5 +66,14 @@ namespace DoorGodWeb.Models
                 new SelectListItem() { Value=機車停車證, Text="機車停車證" }
             };
         }
+
+        public static List<SelectListItem> GetEmpTempCardState()
+        {
+            return new List<SelectListItem> {
+                new SelectListItem() { Value =卡片啟用, Text = "臨時卡啟用" },
+                new SelectListItem() { Value =卡片停用, Text = "臨時卡歸還" }
+            };
+
+        }
     }
 }

@@ -7,7 +7,7 @@
 <h2>AddCard</h2>
 
 <div>
-    @using (@Html.BeginForm("AddCard", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (@Html.BeginForm("AddCard", "CreateCard", FormMethod.Post, new { @class = "form-horizontal" }))
     {
         <div class="form-group">
             @Html.LabelFor(m => m.EmpNo, new { @class = "col-sm-2 control-label" })

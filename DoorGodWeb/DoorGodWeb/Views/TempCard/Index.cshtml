@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>員工臨時卡</h2>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body">
+            <div class="form-group">
+                <label>員工編號</label>
+                @Html.TextBox("empNo", null, new { @class = "form-control" })
+                
+            </div>
+            <div class="form-group">
+                <label>臨時卡晶片編號</label>
+                @Html.TextBox("cardNo", null, new { @class = "form-control" })                
+            </div>            
+            <div class="form-group">
+                <label>卡片狀態</label>
+                <select name="cardState" class="form-control" role="combobox">
+                    @foreach (var item in ViewBag.CardState)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <input class="btn btn-primary" type="submit" value="確定" />
+        </div>
+    }
+</div>
